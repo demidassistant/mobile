@@ -1,39 +1,111 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const NotMyApp());
+  runApp(MyApp());
 }
 
-class NotMyApp extends StatelessWidget {
-  const NotMyApp({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: MyHomePage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: MyWidget(),
+      ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int c = 0;
-
+class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(c.toString()),
-      ),
-      body: const Icon(
-        Icons.park_outlined,
+    return Container(
+      height: 120,
+      margin: EdgeInsets.only(left: 8, right: 8, top: 8),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        elevation: 4,
+        color: Colors.black87,
+        child: Stack(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('18', style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),),
+                      Text('sept', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.circle,
+                            size: 8,
+                            color: Color.fromRGBO(239, 171, 194, 1),
+                          ),
+                          Container(width: 16),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text('LECTION TOPIC',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold)),
+                              Text('THEME',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal))
+                            ],
+                          )
+                        ],
+                      ),
+                      Container(height: 8,),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.circle,
+                            size: 8,
+                            color: Colors.deepPurple,
+                          ),
+                          Container(width: 16),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text('HOMEWORK NOMBERS',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold)),
+                              Text('HOMEWORK',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal))
+                            ],
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
